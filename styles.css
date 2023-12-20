@@ -12,8 +12,9 @@
     --sub-title: 32px;
     --txt: 24px;
     --check-input-theme-height: 30px;
-    --check-input-theme-width: 60px;
+    --check-input-theme-width: calc(var(--check-input-theme-height * 2));
     --check-input-circle-offset: 3px;
+    --check-input-circle-diameter: 25px;
 }
 
 body {
@@ -82,10 +83,9 @@ body {
 }
 
 .check-theme-input::after {
-    --circle-diameter: 25px;
-    height: var(--circle-diameter);
-    width: var(--circle-diameter);
-    top: calc((var(--check-input-theme-height) - var(--circle-diameter))/2);
+    height: var(--check-input-circle-diameter);
+    width: var(--check-input-circle-diameter);
+    top: calc((var(--check-input-theme-height) - var(--check-input-circle-diameter))/2);
     background-color: var(--contrast-color);
     border-radius: 50%;
     position: absolute;
@@ -94,5 +94,5 @@ body {
 }
 
 .check-theme-input:checked::after {
-    left: calc(100% - var(--circle-diameter) - var(--check-input-circle-offset));
+    left: calc(100% - var(--check-input-circle-diameter) - var(--check-input-circle-offset));
 }
