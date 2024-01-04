@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', documentOnReady);
 
 function documentOnReady() {
+    //Get html elements
     const checkThemeEl = document.getElementById('checkTheme');
     const smileWrapEl = document.getElementById('smileWrapEl');
     checkThemeEl.addEventListener('change', function () {
+        //variables
         const blackColor = "#151515";
         const whiteColor = "#aaaaaa";
 
