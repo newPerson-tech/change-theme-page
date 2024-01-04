@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: #151515;
+    --contrast-color: #aaaaaa;
+    --title: 60px;
+    --sub-title: 32px;
+    --txt: 24px;
+    --check-input-theme-height: 40px;
+    --check-input-theme-width: calc(var(--check-input-theme-height) * 2);
+    --check-input-circle-diameter: calc(var(--check-input-theme-height) - 10px);
+    --check-input-cirlce-offset: 3px;
+}
+
+body {
+    font-family: "VT323", monospace;
+}
+
+.page-wrap {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.title {
+    color: var(--contrast-color);
+    font-size: var(--title);
+}
+
+.sub-title {
+    color: var(--contrast-color);
+    font-size: var(--sub-title);
+}
+
+.check-theme-label {
+    color: var(--contrast-color);
+    font-size: var(--txt);
+}
+
+.check-theme-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-theme-input {
+    display: block;
+    visibility: hidden;
+    position: relative;
+    width: var(--check-input-theme-width);
+    height: var(--check-input-theme-height);
+    cursor: pointer;
+}
+
+.check-theme-input::before,
+.check-theme-input::after {
+    content: "";
+    visibility: visible;
+    display: block;
+}
+
+.check-theme-input::before {
+    width: var(--check-input-theme-width);
+    height: var(--check-input-theme-height);
+    background-color: var(--primary-color);
+    box-shadow: inset 0px 0px 3px 2px black;
+    border-radius: 50px;
+}
+
+.check-theme-input::after {
+    height: var(--check-input-circle-diameter);
+    width: var(--check-input-circle-diameter);
+    top: calc((var(--check-input-theme-height) - var(--check-input-circle-diameter)) / 2);
+    background-color: var(--contrast-color);
+    border-radius: 50%;
+    position: absolute;
+    left: var(--check-input-cirlce-offset);
+    transition: left 0.3s ease;
+}
+
+.check-theme-input:checked::after {
+    left: calc(100% - var(--check-input-circle-diameter) - var(--check-input-cirlce-offset));
+}
+
+.smiles-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 388px;
+    gap: 18px;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.smile-card {
+    background-color: var(--contrast-color);
+    padding: 35px;
+    font-size: 46px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 6px 1px var(--contrast-color);
+}
+
+.table {
+    &-wrap {
+        max-width: 1300px;
+        overflow-x: auto;
+    }
+
+    border: 1px solid var(--contrast-color);
+    color: var(--contrast-color);
+    font-size: 36px;
+
+    tr {
+        border: 1px solid var(--contrast-color);
+    }
+
+    td {
+        border: 1px solid var(--contrast-color);
+        padding: 10px;
+    }
+}
+
+.sample-btn-wrap {
+    display: flex;
+    gap: 10px;
+    max-width: 300px;
+    flex-wrap: wrap;
+}
+
+.sample-btn {
+    padding: 30px;
+    max-width: calc((100% / 3) - 10px);
+    width: 100%;
+    font-size: 30px;
+    background-color: var(--contrast-color);
+    color: var(--primary-color);
+
+    &.active {
+        background-color: red;
+        color: var(--contrast-color);
+        box-shadow: 0px 0px 36px 3px red;
+    }
+}
